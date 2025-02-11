@@ -1,0 +1,22 @@
+    {
+  "manifest_version": 3,
+  "name": "YouTube AI Summary",
+  "version": "1.0",
+  "description": "AI-powered YouTube video summaries using Groq API",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["*://*.youtube.com/*", "https://api.groq.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/watch*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+}
